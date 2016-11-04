@@ -1,0 +1,9 @@
+[orion]
+orion1
+orion2
+
+[mongodb]
+orion1
+
+[nginx]
+nginx1 

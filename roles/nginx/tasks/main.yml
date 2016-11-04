@@ -1,0 +1,11 @@
+---
+- name: Install nginx
+  yum: name=nginx state=present
+
+- name: Selinux allow nginx to listen on 1026
+  command: semanage port -l | grep ^http_port_t | grep 1026 || semanage port -a -t http_port_t  -p tcp 1026
+
+- name: Copy nginx configuration
+  template: src=default.conf dest=/etc/nginx/conf.d/default.conf
+  notify: restart nginx
+

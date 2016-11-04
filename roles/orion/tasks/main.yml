@@ -1,0 +1,10 @@
+---
+- name: Copy the FIWARE repository definition
+  template: src=fiware.repo dest=/etc/yum.repos.d/fiware.repo
+
+- name: Install Orion Context Browser
+  yum: name=contextBroker state=present 
+
+- name: Orion Context Browser Configuration
+  template: src=contextBroker dest=/etc/sysconfig/
+  notify: restart orion

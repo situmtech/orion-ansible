@@ -1,0 +1,15 @@
+---
+- hosts: orion
+  roles:
+  - common
+  - orion
+
+- hosts: mongodb
+  roles:
+  - common
+  - mongodb
+
+- hosts: nginx
+  roles:
+  - common
+  - nginx
